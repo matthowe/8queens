@@ -10,13 +10,20 @@ def displayBoard(board):
         print()
     print()
 
-def placeQueen(board):
+def autoPlaceQueen(board):
     for y in range(8):
         for x in range(8):
             if board[y][x] == ".":
                 board[y][x] = "Q"
                 queenBlocks(board)
                 return True
+    return False
+
+def PlaceQueen(board,y,x):
+    if board[y][x] == ".":
+        board[y][x] = "Q"
+        queenBlocks(board)
+        return True
     return False
         
 def queenBlocks(board):
@@ -65,26 +72,194 @@ def queenBlocks(board):
                         xn=xn-1
                     
 
+def isBoardFull(board):
+    for y in range(8):
+        for x in range(8):
+            if board[y][x] == ".":
+                return False
+    #print("board full")
+    return True
+
                     
+
+
+
+
+queens = 0
+
+
+
+
+iteration = 0
+for y in range(8):
+        for x in range(8):
+            board = createBoard()
+            
+            iteration = iteration + 1
+            print("running iteration",iteration)
+            
+            queens = 0
+            
+            place = PlaceQueen(board,y,x)
+            if place == True:
+                queens = queens + 1
+                
+            if queens == 8:
+                displayBoard(board)
+                
+            if isBoardFull(board) == True:
+                break
+
+            for y in range(8):
+                    for x in range(8):
+                        place = PlaceQueen(board,y,x)
+                        if place == True:
+                            queens = queens + 1
+                            
+                        if queens == 8:
+                            displayBoard(board)
+                            
+                       # if isBoardFull(board) == True:
+                        #    break
+
+                        for y in range(8):
+                                for x in range(8):
+                                    place = PlaceQueen(board,y,x)
+                                    if place == True:
+                                        queens = queens + 1
+                                        
+                                    if queens == 8:
+                                        displayBoard(board)
+                                        
+                                   # if isBoardFull(board) == True:
+                                    #    break
+                                    
+                                    for y in range(8):
+                                            for x in range(8):
+                                                place = PlaceQueen(board,y,x)
+                                                if place == True:
+                                                    queens = queens + 1
+                                                    
+                                                if queens == 8:
+                                                    displayBoard(board)
+                                                    
+                                                #if isBoardFull(board) == True:
+                                                 #   break
+
+                                                
+                                                for y in range(8):
+                                                        for x in range(8):
+                                                            place = PlaceQueen(board,y,x)
+                                                            if place == True:
+                                                                queens = queens + 1
+                                                                
+                                                            if queens == 8:
+                                                                displayBoard(board)
+                                                                
+                                                           # if isBoardFull(board) == True:
+                                                            #    break
+
+
+                                                            
+                                                            for y in range(8):
+                                                                    for x in range(8):
+                                                                        place = PlaceQueen(board,y,x)
+                                                                        if place == True:
+                                                                            queens = queens + 1
+                                                                            
+                                                                        if queens == 8:
+                                                                            displayBoard(board)
+                                                                            
+                                                                        #if isBoardFull(board) == True:
+                                                                        #    break
+
+                                                                                    
+                                                                        for y in range(8):
+                                                                                for x in range(8):
+                                                                                    place = PlaceQueen(board,y,x)
+                                                                                    if place == True:
+                                                                                        queens = queens + 1
+                                                                                        
+                                                                                    if queens == 8:
+                                                                                        displayBoard(board)
+                                                                                        
+                                                                                    #if isBoardFull(board) == True:
+                                                                                     #   break
+                                                                                                            
+                                                                                    for y in range(8):
+                                                                                            for x in range(8):
+                                                                                                place = PlaceQueen(board,y,x)
+                                                                                                if place == True:
+                                                                                                    queens = queens + 1
+                                                                                                    
+                                                                                                if queens == 8:
+                                                                                                    displayBoard(board)
+                                                                                                    
+                                                                                                if isBoardFull(board) == True:
+                                                                                                    break
+
+
+
+
+                                                            
+
+
+
+
+
+
+
+
+def place(board):
+    iteration = 0
+    for y in range(8):
+            for x in range(8):
+                iteration = iteration + 1
+                print("running iteration",iteration)
+                
+                queens = 0
+                
+                place = PlaceQueen(board,y,x)
+                if place == True:
+                    queens = queens + 1
                     
+                if queens == 8:
+                    return True
+                
+                if isBoardFull == True:
+                    return True
+
+#for i in range(8):
+#    place(board)
+                                
+
+                                                                                            
+                                        
+
+
+                                                                                                       
+        
 
 
 
-
+#for queen in range(8):
+#    print()
 
 #board[3][3] = "Q"
 
-for y in range(8):
-    for x in range(8):
-        board = createBoard()
-        board[y][x] = "Q"
-        queens = 1
-        queenBlocks(board)
-        place = True
-        while place == True:
-            place = placeQueen(board)
-            queens = queens + 1
 
-        displayBoard(board)
+
+#for y in range(8):
+#    for x in range(8):
+#        board = createBoard()
+#        board[y][x] = "Q"
+#        queens = 1
+#        queenBlocks(board)
+#        place = True
+#        while place == True:
+#            place = placeQueen(board)
+#            queens = queens + 1
+
+#        displayBoard(board)
 
 
