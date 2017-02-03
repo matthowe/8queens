@@ -19,7 +19,7 @@ def autoPlaceQueen(board):
                 return True
     return False
 
-def PlaceQueen(board,y,x):
+def placeQueen(board,y,x):
     if board[y][x] == ".":
         board[y][x] = "Q"
         queenBlocks(board)
