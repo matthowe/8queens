@@ -80,7 +80,16 @@ def isBoardFull(board):
     #print("board full")
     return True
 
+
+def freeSpaces(board):
+    freeSquares=[]
+    for y in range(8):
+        for x in range(8):
+            if board[y][x] == ".":
+                freeSquares.append([y,x])
+    return freeSquares
                     
+
 
 
 
