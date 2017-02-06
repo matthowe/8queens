@@ -2,25 +2,48 @@ from eightQueens import *
 import copy
 
 
-def bruteForce(board,freeSquares,queens):
+
+def bruteForce(board,searchIndex,queens):
+    """NOT done as a tree transversal"""
+    
     freeSquares = freeSpaces(board)
-    if len(freeSquares) = 0:
-        return dead
-    else:
-        for i in range(len(freeSquares)):
-        placeQueen(board,freeSquares[i][0],freeSquares[i][1])
+
+    print(searchIndex)
+
+    print(len(freeSquares))
+    if len(freeSquares) > 0:
+
+        if len(freeSquares) == 1:
+            searchIndex = 0            
+        
+        placeQueen(board,freeSquares[searchIndex][0],freeSquares[searchIndex][1])
         freeSquares = freeSpaces(board)
+
+        displayBoard(board) #debugging
 
         if queens > 7:
             displayBoard(board)
             board = createBoard()
             queens = 0
+            return
+
+        #if len(freeSquares) = 0:
+        bruteForce(board, searchIndex, queens)
+
+    return   
 
 
 
 queens = 0
 iteration = 0
 board = createBoard()
+
+freeSquares = freeSpaces(board)
+
+for searchIndex in range(64):
+    bruteForce(board, searchIndex, queens)
+
+    board = createBoard()
 
 
 
