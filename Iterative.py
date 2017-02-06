@@ -8,19 +8,28 @@ def bruteForce(board,searchIndex,queens):
     
     freeSquares = freeSpaces(board)
 
-    print(searchIndex)
+    #print(searchIndex)
 
     print(len(freeSquares))
     if len(freeSquares) > 0:
-
+        
         if len(freeSquares) == 1:
-            searchIndex = 0            
+            searchIndex = 0
+            
+        if len(freeSquares) <= searchIndex:
+            searchIndex = (len(freeSquares)-1)
+            #print(searchIndex)
+
+
+
+        
         
         placeQueen(board,freeSquares[searchIndex][0],freeSquares[searchIndex][1])
+        queens = queens + 1
         freeSquares = freeSpaces(board)
 
-        displayBoard(board) #debugging
-
+        #displayBoard(board) #debugging
+        #print(queens)
         if queens > 7:
             displayBoard(board)
             board = createBoard()
@@ -29,7 +38,8 @@ def bruteForce(board,searchIndex,queens):
 
         #if len(freeSquares) = 0:
         bruteForce(board, searchIndex, queens)
-
+        
+    
     return   
 
 
@@ -44,6 +54,7 @@ for searchIndex in range(64):
     bruteForce(board, searchIndex, queens)
 
     board = createBoard()
+    queens = 0
 
 
 
